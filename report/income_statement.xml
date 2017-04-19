@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="income_statement_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+                                    <!--<group name="director_left"  >
+                                         <group >
+                                             <table width="100%">
+                                                 <tr >
+                                                     <td> Client Name </td>
+                                                     <td><span t-field="o.client_name" class="oe_clear" /> </td>
+                                                     <td>Report Period</td>
+                                                     <td> Form  </td>
+                                                     <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                                     <td> To   </td>
+                                                     <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td><br/></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <hr string="Hello"><td width="100%" bgcolor="#666666">Financial Position Analysis</td></hr>
+                                                 </tr>
+                                             </table>
+                                             <
+                                             <hr></hr>
+                                         </group>
+                                </group>-->
+
+                                <!-- <table width="100%">
+                                     <tr >
+                                         <td> Client Name </td>
+                                         <td ><span t-field="o.client_name" class="oe_clear" /> </td>
+                                         <td/>
+                                         <td/>
+                                         <td/>
+                                         <td>Report Period</td>
+                                         <td> Form  </td>
+                                         <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                         <td> To   </td>
+                                         <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                     </tr>
+                                     <tr>
+                                         <td><br/></td>
+                                     </tr>
+                                 </table>-->
+
+
+                                <group string="Revenue">
+                                    <table width="100%">
+                                        <thead>
+                                             <tr >
+                                                 <td> Client Name </td>
+                                                 <td colspan="2"><span t-field="o.client_name" class="oe_clear" /> </td>
+                                                 <td/>
+                                                 <td>Report Period</td>
+                                                 <td> Form  </td>
+                                                 <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                                 <td> To   </td>
+                                                 <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                             </tr>
+                                            <tr>
+                                                <td colspan="10">
+                                                <h4  style="background-color:#e6e6e6"  >
+                                                         <b>Overview of Financial Performance</b>
+                                                </h4>
+                                                </td >
+                                            </tr>
+                                            <tr>
+                                                <td><b>Indicator</b></td>
+                                                <td/>
+                                                <td><b>Current Value</b></td>
+                                                <td><b>Total%</b></td>
+                                                <td/>
+                                                <td><b> Budget </b></td>
+                                                <td><b> Change% </b></td>
+                                                <td/>
+                                                <td><b>YOY</b></td>
+                                                <td><b>Change%</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Revenue </b></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.revenue_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.revenue_add"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.revenue_val"/></td>
+                                                    <td><span t-field="m.revenue_tot"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.revenue_budget"/></td>
+                                                    <td><span t-field="m.revenue_change"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.revenue_year"/></td>
+                                                    <td><span t-field="m.revenue_yoy_change"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><b>Operation Expenses </b></td>
+                                            </tr>
+                                            <t t-foreach="o.op_id" t-as="n">
+                                                <tr>
+                                                    <td><span t-field="n.op_add"/></td>
+                                                    <td/>
+                                                    <td><span t-field="n.op_val"/></td>
+                                                    <td><span t-field="n.op_tot"/></td>
+                                                    <td/>
+                                                    <td><span t-field="n.op_budget"/></td>
+                                                    <td><span t-field="n.op_change"/></td>
+                                                    <td/>
+                                                    <td><span t-field="n.op_year"/></td>
+                                                    <td><span t-field="n.op_yoy_change"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td> <br/> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <br/> </td>
+                                            </tr>
+                                            <tr>
+                                                <td > EBIT  </td>
+                                                <td/>
+                                                <td> <span t-field="o.revenue_exp_val" class="oe_clear"/></td>
+                                                <td > <field t-field="o.revenue_exp_tot" class="oe_clear"/></td>
+                                                <td/>
+                                                <td> <field t-field="o.revenue_exp_budget" class="oe_clear"/></td>
+                                                <td> <field t-field="o.revenue_exp_change" class="oe_clear"/></td>
+                                                <td/>
+                                                <td> <field t-field="o.revenue_exp_year" class="oe_clear"/></td>
+                                                <td> <field t-field="o.revenue_exp_yoy_change" class="oe_clear"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td> <br/> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Finance Cost </td>
+                                                <td/>
+                                                <td> <spn t-field="o.finance_val" class="oe_clear"/></td>
+                                                <td> <span t-field="o.finance_tot" class="oe_clear"/></td>
+                                                <td/>
+                                                <td> <span t-field="o.finance_budget" class="oe_clear"/></td>
+                                                <td> <span t-field="o.finance_change" class="oe_clear"/></td>
+                                                <td/>
+                                                <td> <span t-field="o.finance_year" class="oe_clear"/></td>
+                                                <td> <span t-field="o.finance_yoy_change" class="oe_clear"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Tax  </td>
+                                                <td/>
+                                                <td> <span t-field="o.tax_val" class="oe_clear"/></td>
+                                                <td> <span t-field="o.tax_tot" class="oe_clear"/></td>
+                                                <td/>
+                                                <td> <span t-field="o.tax_budget" class="oe_clear"/></td>
+                                                <td> <span t-field="o.tax_change" class="oe_clear"/></td>
+                                                <td/>
+                                                <td> <span t-field="o.tax_year" class="oe_clear"/></td>
+                                                <td> <span t-field="o.tax_yoy_change" class="oe_clear"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td> <br/> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <h4> Income Summary </h4>  </td>
+                                                <td/>
+                                                <td> <span t-field="o.summary_val" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.summary_tot" class="oe_clear" readonly="1"/></td>
+                                                <td/>
+                                                <td> <span t-field="o.summary_budget" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.summary_change" class="oe_clear" readonly="1"/></td>
+                                                <td/>
+                                                <td> <span t-field="o.summary_year" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.summary_yoy_change" class="oe_clear" readonly="1"/></td>
+                                            </tr>
+
+                                        </tfoot>
+                                    </table>
+                                </group>
+                                <br/>
+                                <b>Notes</b>
+                                <span t-field="o.details" String="notes"/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+    </openerp>

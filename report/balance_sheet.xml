@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="balance_sheet_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+
+                                <group string="Current Assets">
+                                    <table width="100%">
+                                        <thead>
+                                            <tr >
+                                                 <td> Client Name </td>
+                                                 <td ><span t-field="o.client_name" class="oe_clear" /> </td>
+                                                 <td/>
+                                                 <td width="15%">Report Period</td>
+                                                 <td> Form  </td>
+                                                 <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                                 <td> To   </td>
+                                                 <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                             </tr>
+                                            <tr>
+                                                <td colspan="10">
+                                                <h4  style="background-color:#e6e6e6"  >
+                                                         <b>Financial Position Analysis</b>
+                                                </h4>
+                                                </td >
+                                            </tr>
+                                            <tr>
+                                                <td><b>Indicator</b></td>
+                                                <td><b>Current Value</b></td>
+                                                <td><b>Balance</b></td>
+                                                <td><b>Year on Year</b></td>
+                                                <td><b>Change%</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Assets</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Current assets</b></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.current_asset_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.current_asset_add"/></td>
+                                                    <td><span t-field="m.current_asset_val"/></td>
+                                                    <td><span t-field="m.current_asset_balance"/></td>
+                                                    <td><span t-field="m.current_asset_year"/></td>
+                                                    <td><span t-field="m.current_asset_change"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><b>Non-Current assets</b></td>
+                                            </tr>
+                                            <t t-foreach="o.non_current_asset_id" t-as="n">
+                                                <tr>
+                                                    <td><span t-field="n.non_current_asset_add"/></td>
+                                                    <td><span t-field="n.non_current_asset_val"/></td>
+                                                    <td><span t-field="n.non_current_asset_balance"/></td>
+                                                    <td><span t-field="n.non_current_asset_year"/></td>
+                                                    <td><span t-field="n.non_current_asset_change"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Current Liabilities</b></td>
+                                            </tr>
+                                            <t t-foreach="o.current_liab_id" t-as="l">
+                                                <tr>
+                                                    <td><span t-field="l.current_liab_add"/></td>
+                                                    <td><span t-field="l.current_liab_val"/></td>
+                                                    <td><span t-field="l.current_liab_balance"/></td>
+                                                    <td><span t-field="l.current_liab_year"/></td>
+                                                    <td><span t-field="l.current_liab_change"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><b>Non-Current Liabilities</b></td>
+                                            </tr>
+                                            <t t-foreach="o.non_current_liab_id" t-as="nl">
+                                                <tr>
+                                                    <td><span t-field="nl.non_current_liab_add"/></td>
+                                                    <td><span t-field="nl.non_current_liab_val"/></td>
+                                                    <td><span t-field="nl.non_current_liab_balance"/></td>
+                                                    <td><span t-field="nl.non_current_liab_year"/></td>
+                                                    <td><span t-field="nl.noncurrent_liab_change"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr style="background-color:#e6e6e6" width="100%" >
+                                                <td> <b> Net Assets </b></td>
+                                                <td> <span t-field="o.net_asset_val" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.net_asset_balance" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.net_asset_year" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.net_asset_change" class="oe_clear" readonly="1" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Equity </b></td>
+                                            </tr>
+                                            <t t-foreach="o.equity_id" t-as="e">
+                                                <tr>
+                                                    <td><span t-field="e.equity_add"/></td>
+                                                    <td><span t-field="e.equity_val"/></td>
+                                                    <td><span t-field="e.equity_balance"/></td>
+                                                    <td><span t-field="e.equity_year"/></td>
+                                                    <td><span t-field="e.equity_change"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td > <b> Total Equity </b> </td>
+                                                <td> <span t-field="o.tot_equity_val" class="oe_clear" readonly="1"/></td>
+                                                <td> <span t-field="o.tot_equity_balance" class="oe_clear" readonly="1" /></td>
+                                                <td> <span t-field="o.tot_equity_year" class="oe_clear" readonly="1" /></td>
+                                                <td> <span t-field="o.tot_equity_change" class="oe_clear" readonly="1" /></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                                <br/>
+                                <b>Notes</b>
+                                <span t-field="o.details" String="notes"/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+    </openerp>

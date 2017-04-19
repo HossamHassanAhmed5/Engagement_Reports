@@ -1,0 +1,1292 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="view_performance_snapshot" model="ir.ui.view">
+            <field name="name">performance view</field>
+            <field name="model">performance.snapshot</field>
+            <field name="arch" type="xml">
+                <form string="performance snapshot">
+                    <sheet>
+                        <!--<button name="performance_report" string="Print" type="action" icon="gtk-print"/>-->
+                        <group id="first">
+                            <h1><field name="logo" class="oe_horizontal_separator oe_clear" widget="image"/></h1>
+                        </group>
+                        <h3>Director's Report</h3>
+                        <group name="first">
+                            <group name="director_left"  >
+                                <field name="issue_date"/>
+
+                                 <group colspan="2">
+                                     <table width="100%">
+                                        <tr>
+                                            <td width="15%"><h4>Report Period     | </h4></td>
+                                            <td></td>
+                                            <td><h4> From  :  </h4></td>
+                                            <td> <h4> <field name="from_date" class="oe_clear"/> </h4> </td>
+                                            <td></td>
+                                            <td> <h4> tO   : </h4></td>
+                                            <td> <h4> <field name="to_date" class="oe_clear"/> </h4></td>
+                                        </tr>
+                                    </table>
+                                </group>
+                            <!-- &lt;!&ndash;&ndash;&gt;report period <field name="from_date" string="from"/> <field name="to_date" string="To"/>-->
+                                <field name="statment_work"/>
+                                <field name="client_rel" string="Client Relations"/>
+                            </group>
+                            <group name="director_right" >
+                                <field name="auditor" string="The Auditor: "/>
+                                <field name="manager" string="Engagement Manager: "/>
+                                <br></br><br></br>
+                                <field name="work_hour" string="total working hours"/>
+                            </group>
+                            <br></br>
+                            <br></br>
+                        </group>
+
+
+                        <group name="second">
+                            <group name="second_left">
+                                <field name="client_name" String="Client name : "/>
+                                <field name="Engag_num" String="Engagement Number : "/>
+                                <field name="licen_info" String="License Info : "/>
+                                <group colspan="2">
+                                     <table width="100%">
+                                        <tr>
+                                            <td><h4> City       | </h4> </td>
+                                            <td> <field name="city" class="oe_clear"/></td>
+                                            <td></td>
+                                            <td><h4 > Country     |</h4> </td>
+                                            <td> <field name="country" class="oe_clear"/></td>
+                                        </tr>
+                                    </table>
+                                </group>
+                                <!--<field name="city" />
+                                <field name="country"/>-->
+                                <field name="busin_activary" String="Business Activity : "/>
+                                 <group colspan="2">
+                                     <table width="100%">
+                                        <tr>
+                                            <td><h4> Report Currency       | </h4> </td>
+                                            <td> <field name="report_cur" class="oe_clear"/></td>
+                                            <td></td>
+                                            <td><h4 > Rounding Level     |</h4> </td>
+                                            <td> <field name="round_level" class="oe_clear"/></td>
+                                        </tr>
+                                    </table>
+                                </group>
+                                <!--
+                                <field name="report_cur" String="Report Currency : "/>
+                                <field name="round_level" String = "Rounding Level : "/>-->
+                            </group>
+                            <group name="second_right">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <field name="director_name" String="Director's Name : "/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                        <table width="100%">
+                            <tr>
+                                <th width="60%"><h2>Key Audits</h2></th>
+                                <th width="40%"><h2>Key Accelerators</h2></th>
+                            </tr>
+                        </table>
+                        <group name="third">
+                            <group name="third_left" >
+
+                                <field name="open_findings" String="Open Findings "/>
+                                <field name="open_vouching" String="Open Vouching  "/>
+                                <field name="discreet_openion" String="Discreet Openion "/>
+                                <field name="negative_openion" String="Negative Openion "/>
+
+                            </group>
+                             <group name="third_middel" >
+                                <span><field name="key_findings" class="oe_clear oe_inline"/></span>
+                                <span><field name="findings_date" class="oe_clear"/></span>
+                                <span><field name="key_vouching" class="oe_clear oe_inline"/></span>
+                                <span><field name="vouching_date" class=" oe_clear"/></span>
+                                <span><field name="key_discreet_openion" class=" oe_clear oe_inline"/></span>
+                                <span><field name="discreet_openion_date" class=" oe_clear"/></span>
+                                <span><field name="key_negative_openion" class="oe_clear oe_inline"/></span>
+                                <span><field name="negative_openion_date" class="oe_clear"/></span>
+                            </group>
+
+                        </group>
+                        <h2>Key Financials</h2>
+                        <table width="100%">
+                            <tr>
+                                <td></td>
+                                <th >Current</th>
+                                <th >Budget</th>
+                                <th>Variance%</th>
+                                <td></td>
+                                <th>Year on Year</th>
+                                <th>Variance%</th>
+                            </tr>
+                            <tr>
+                                <td> Revenue </td>
+                                <td> <field name="curr_rev" class="oe_clear"/></td>
+                                <td> <field name="budget_rev" class="oe_clear"/></td>
+                                <td> <field name="variance_rev" class="oe_clear"/></td>
+                                <td></td>
+                                <td> <field name="y_on_y_rev" class="oe_clear"/></td>
+                                <td> <field name="variance_y_to_y_rev" class="oe_clear"/></td>
+
+                            </tr>
+                            <tr>
+                                <td> Net Profit </td>
+                                <td> <field name="curr_netprof" class="oe_clear"/></td>
+                                <td> <field name="budget_netprof" class="oe_clear"/></td>
+                                <td> <field name="variance_netprof" class="oe_clear"/></td>
+                                <td></td>
+                                <td> <field name="y_on_y_netprof" class="oe_clear"/></td>
+                                <td> <field name="variance_y_to_y_netprof" class="oe_clear"/></td>
+                            </tr>
+                            <tr>
+                                <td> Cash Flow </td>
+                                <td> <field name="curr_cash" class="oe_clear"/></td>
+                                <td> <field name="budget_cash" class="oe_clear"/></td>
+                                <td> <field name="variance_cash" class="oe_clear"/></td>
+                                <td></td>
+                                <td> <field name="y_on_y_cash" class="oe_clear"/></td>
+                                <td> <field name="variance_y_to_y_cash" class="oe_clear"/></td>
+                            </tr>
+                            <tr>
+                                <td> Net Assets </td>
+                                <td> <field name="curr_asset" class="oe_clear"/></td>
+                                <td> <field name="budget_asset" class="oe_clear"/></td>
+                                <td> <field name="variance_asset" class="oe_clear"/></td>
+                                <td></td>
+                                <td> <field name="y_on_y_asset" class="oe_clear"/></td>
+                                <td> <field name="variance_y_to_y_asset" class="oe_clear"/></td>
+                            </tr>
+                        </table>
+
+                        <h2>Notes</h2>
+                        <span><field name="details" String="notes"/></span>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--balance view-->
+
+        <record id="view_balanced" model="ir.ui.view">
+            <field name="name">Balanced Sheet</field>
+            <field name="model">balance.sheet</field>
+            <field name="arch" type="xml">
+                <form string="Balance Sheet">
+                    <sheet>
+                        <group name="first">
+                            <group name="first_left">
+
+                                <td><field name="client_name" class="oe_clear" /> </td>
+                            </group>
+                            <group name="first_right">
+
+                                <table >
+                                    <tr>
+
+                                        <td><h4>Report Period     : </h4></td>
+                                        <td></td>
+                                        <td><h4> FROM   </h4> </td>
+                                        <td> <field name="from_date" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td><h4 > TO   </h4> </td>
+                                        <td> <field name="to_date" class="oe_clear"/></td>
+                                    </tr>
+                                </table>
+                            </group>
+                        </group>
+
+                        <separator string="Financial Position Analysis" colspan="4" style="background-color:#e6e6e6" />
+                        <b> Current Asset </b>
+                        <field name="current_asset_id">
+                            <tree editable="top">
+                                <field name="current_asset_add" />
+                                <field name="current_asset_val" avg="Average" class="oe_clear"/>
+                                <field name="current_asset_balance" avg="Average" class="oe_clear"/>
+                                <field name="current_asset_year" avg="Average" class="oe_clear"/>
+                                <field name="current_asset_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="current_asset_add"/>
+                                    <field name="current_asset_val" avg="Average" class="oe_clear"/>
+                                    <field name="current_asset_balance" avg="Average" class="oe_clear"/>
+                                    <field name="current_asset_year" avg="Average" class="oe_clear"/>
+                                    <field name="current_asset_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                        <b> Non-Current Assets </b>
+                        <field name="non_current_asset_id">
+                            <tree editable="top">
+                                <field name="non_current_asset_add" />
+                                <field name="non_current_asset_val" avg="Average" class="oe_clear"/>
+                                <field name="non_current_asset_balance" avg="Average" class="oe_clear"/>
+                                <field name="non_current_asset_year" avg="Average" class="oe_clear"/>
+                                <field name="non_current_asset_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="non_current_asset_add" />
+                                    <field name="non_current_asset_val" avg="Average" class="oe_clear"/>
+                                    <field name="non_current_asset_balance" avg="Average" class="oe_clear"/>
+                                    <field name="non_current_asset_year" avg="Average" class="oe_clear"/>
+                                    <field name="non_current_asset_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                        <br/>
+                        <br/>
+                        <b> Current Liabilities </b>
+                        <field name="current_liab_id">
+                            <tree editable="top">
+                                <field name="current_liab_add" />
+                                <field name="current_liab_val" avg="Average" class="oe_clear"/>
+                                <field name="current_liab_balance" avg="Average" class="oe_clear"/>
+                                <field name="current_liab_year" avg="Average" class="oe_clear"/>
+                                <field name="current_liab_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="current_liab_add" />
+                                    <field name="current_liab_val" avg="Average" class="oe_clear"/>
+                                    <field name="current_liab_balance" avg="Average" class="oe_clear"/>
+                                    <field name="current_liab_year" avg="Average" class="oe_clear"/>
+                                    <field name="current_liab_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                        <b> Non Current Liabilities </b>
+                        <field name="non_current_liab_id">
+                            <tree editable="top">
+                                <field name="non_current_liab_add" />
+                                <field name="non_current_liab_val" avg="Average" class="oe_clear"/>
+                                <field name="non_current_liab_balance" avg="Average" class="oe_clear"/>
+                                <field name="non_current_liab_year" avg="Average" class="oe_clear"/>
+                                <field name="noncurrent_liab_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="non_current_liab_add" />
+                                    <field name="non_current_liab_val" avg="Average" class="oe_clear"/>
+                                    <field name="non_current_liab_balance" avg="Average" class="oe_clear"/>
+                                    <field name="non_current_liab_year" avg="Average" class="oe_clear"/>
+                                    <field name="noncurrent_liab_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                        <table width="100%">
+                            <tr bgcolor="#d9d9d9" >
+                                    <td width="35%"> <h4> Net Assets </h4></td>
+                                <td/>
+
+                                    <td> <field name="net_asset_val" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="net_asset_balance" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="net_asset_year" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="net_asset_change" class="oe_clear" readonly="1" /></td>
+                                </tr>
+                        </table>
+
+                        <field name="equity_id">
+                            <tree editable="top">
+                                <field name="equity_add"/>
+                                <field name="equity_val" avg="Average" class="oe_clear"/>
+                                <field name="equity_balance" avg="Average" class="oe_clear"/>
+                                <field name="equity_year" avg="Average" class="oe_clear"/>
+                                <field name="equity_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="equity_add" />
+                                    <field name="equity_val" avg="Average" class="oe_clear"/>
+                                    <field name="equity_balance" avg="Average" class="oe_clear"/>
+                                    <field name="equity_year" avg="Average" class="oe_clear"/>
+                                    <field name="equity_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                        <table width="100%">
+                            <tr>
+                                    <td width="35%"> <h4> Total Equity </h4> </td>
+                                    <td/>
+
+                                    <td> <field name="tot_equity_val" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="tot_equity_balance" class="oe_clear" readonly="1" /></td>
+                                    <td> <field name="tot_equity_year" class="oe_clear" readonly="1" /></td>
+                                    <td> <field name="tot_equity_change" class="oe_clear" readonly="1" /></td>
+                                </tr>
+                        </table>
+
+                        <!--<group name="second" >
+                            <table width="100%">
+                                <tr>
+                                    <th colspan="2">Indicator </th>
+                                    <td/>
+                                    <th >Current Value</th>
+                                    <th >Balance </th>
+                                    <th>Year on Year</th>
+                                    <th>Change%</th>
+                                </tr>
+                                <tr>
+
+                                    <td> <h4> Assets </h4> </td>
+
+                                </tr>
+                                <tr>
+                                    <td> <h4> Current assets </h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="current_asset_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="current_asset_val" class="oe_clear"/></td>
+                                    <td> <field name="current_asset_balance" class="oe_clear"/></td>
+                                    <td> <field name="current_asset_year" class="oe_clear"/></td>
+                                    <td> <field name="current_asset_change" class="oe_clear"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <h4> Non-Current Assets </h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="non_current_asset_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="non_current_asset_val" class="oe_clear"/></td>
+                                    <td> <field name="non_current_asset_balance" class="oe_clear"/></td>
+                                    <td> <field name="non_current_asset_year" class="oe_clear"/></td>
+                                    <td> <field name="non_current_asset_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                <tr>
+                                    <td> <h4> Current Liabilities</h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="Liab_current_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="Liab_current_val" class="oe_clear"/></td>
+                                    <td> <field name="Liab_current_balance" class="oe_clear"/></td>
+                                    <td> <field name="Liab_current_year" class="oe_clear"/></td>
+                                    <td> <field name="Liab_current_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <h4> Non-current liabilities </h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="non_Liab_current_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="non_Liab_current_val" class="oe_clear"/></td>
+                                    <td> <field name="non_Liab_current_balance" class="oe_clear"/></td>
+                                    <td> <field name="non_Liab_current_year" class="oe_clear"/></td>
+                                    <td> <field name="non_Liab_current_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <h4> Non-current liabilities </h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="non_Liab_current_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="non_Liab_current_val" class="oe_clear"/></td>
+                                    <td> <field name="non_Liab_current_balance" class="oe_clear"/></td>
+                                    <td> <field name="non_Liab_current_year" class="oe_clear"/></td>
+                                    <td> <field name="non_Liab_current_change" class="oe_clear"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                <tr bgcolor="#d9d9d9" colspan="4">
+                                    <td> <h4> Net Assets </h4></td>
+                                    <td/>
+                                    <td/>
+                                    <td> <field name="net_asset_val" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="net_asset_balance" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="net_asset_year" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="net_asset_change" class="oe_clear" readonly="1" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                 <tr>
+                                    <td> <h4> Equity </h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="equity_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="equity_val" class="oe_clear"/></td>
+                                    <td> <field name="equity_balance" class="oe_clear"/></td>
+                                    <td> <field name="equity_year" class="oe_clear"/></td>
+                                    <td> <field name="equity_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                <tr>
+                                    <td> <h4> Total Equity </h4> </td>
+                                    <td/>
+                                    <td/>
+                                    <td> <field name="tot_equity_val" class="oe_clear"/></td>
+                                    <td> <field name="tot_equity_balance" class="oe_clear"/></td>
+                                    <td> <field name="tot_equity_year" class="oe_clear"/></td>
+                                    <td> <field name="tot_equity_change" class="oe_clear"/></td>
+                                </tr>
+                            </table>-->
+                        <!--</group>-->
+                        <h2>Notes</h2>
+                        <span><field name="details" String="notes"/></span>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Income Statement-->
+
+        <record id="view_income" model="ir.ui.view">
+            <field name="name">Income Statement</field>
+            <field name="model">income.statement</field>
+            <field name="arch" type="xml">
+                <form string="Income Statemen">
+                    <sheet>
+                        <group name="first">
+                            <group name="first_left">
+
+                                <td><field name="client_name" class="oe_clear" /> </td>
+                            </group>
+                            <group name="first_right">
+
+                                <table >
+                                    <tr>
+
+                                        <td><h4>Report Period     : </h4></td>
+                                        <td></td>
+                                        <td><h4> FROM   </h4> </td>
+                                        <td> <field name="from_date" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td><h4 > TO   </h4> </td>
+                                        <td> <field name="to_date" class="oe_clear"/></td>
+                                    </tr>
+                                </table>
+                            </group>
+
+
+                        </group>
+
+                        <separator string="Financial Position Analysis" colspan="4" style="background-color:#e6e6e6" />
+                        <b> Revenue  </b>
+                        <field name="revenue_id">
+                            <tree editable="top">
+                                <field name="revenue_add" />
+                                <field name="revenue_val" avg="Average" class="oe_clear"/>
+                                <field name="revenue_tot" avg="Average" class="oe_clear"/>
+                                <field name="revenue_budget" avg="Average" class="oe_clear"/>
+                                <field name="revenue_change" avg="Average" class="oe_clear"/>
+                                <field name="revenue_year" avg="Average" class="oe_clear"/>
+                                <field name="revenue_yoy_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="revenue_add" />
+                                    <field name="revenue_val" avg="Average" class="oe_clear"/>
+                                    <field name="revenue_tot" avg="Average" class="oe_clear"/>
+                                    <field name="revenue_budget" avg="Average" class="oe_clear"/>
+                                    <field name="revenue_change" avg="Average" class="oe_clear"/>
+                                    <field name="revenue_year" avg="Average" class="oe_clear"/>
+                                    <field name="revenue_yoy_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                        <b> Operation Expenses </b>
+                        <field name="op_id">
+                            <tree editable="top">
+                                <field name="op_add" />
+                                <field name="op_val" avg="Average" class="oe_clear"/>
+                                <field name="op_tot" avg="Average" class="oe_clear"/>
+                                <field name="op_budget" avg="Average" class="oe_clear"/>
+                                <field name="op_change" avg="Average" class="oe_clear"/>
+                                <field name="op_year" avg="Average" class="oe_clear"/>
+                                <field name="op_yoy_change" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="op_add" />
+                                    <field name="op_val" avg="Average" class="oe_clear"/>
+                                    <field name="op_tot" avg="Average" class="oe_clear"/>
+                                    <field name="op_budget" avg="Average" class="oe_clear"/>
+                                    <field name="op_change" avg="Average" class="oe_clear"/>
+                                    <field name="op_year" avg="Average" class="oe_clear"/>
+                                    <field name="op_yoy_change" avg="Average" class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+                               <!-- <tr>
+                                    <th colspan="2">Indicator </th>
+                                    <td/>
+                                    <th >Current Value</th>
+                                    <th > Total%</th>
+                                    <td/>
+                                    <th > Budget </th>
+                                    <th > Change% </th>
+<td/>
+                                    <th>YOY</th>
+                                    <th>Change%</th>
+                                </tr>
+
+                                <tr>
+                                    <td> <h4> Revenue</h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="revenue_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="revenue_val" class="oe_clear"/></td>
+                                    <td> <field name="revenue_tot" class="oe_clear"/></td>
+                                     <td/>
+
+                                    <td> <field name="revenue_budget" class="oe_clear"/></td>
+                                    <td> <field name="revenue_change" class="oe_clear"/></td>
+                                    <td/>
+
+                                    <td> <field name="revenue_year" class="oe_clear"/></td>
+                                    <td> <field name="revenue_yoy_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <h4> Operation Expenses </h4> </td>
+                                </tr>
+                                <tr>
+                                    <td> Add: </td>
+                                    <td> <field name="op_add" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="op_val" class="oe_clear"/></td>
+                                    <td> <field name="op_tot" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="op_budget" class="oe_clear"/></td>
+                                    <td> <field name="op_change" class="oe_clear"/></td>
+                                    <td/>
+                                    <td> <field name="op_year" class="oe_clear"/></td>
+                                    <td> <field name="op_yoy_change" class="oe_clear"/></td>
+                                </tr>
+
+                                <tr>
+                                    <t-d> <br/> </td>
+                                </tr-->
+                        <table width="100%" >
+                                <tr>
+                                    <td width="10%"> EBIT  </td>
+
+                                    <td width="7%"> <field name="revenue_exp_val" class="oe_clear"/></td>
+                                    <td width="2%"> <field name="revenue_exp_tot" class="oe_clear"/></td>
+
+                                    <td width="2%"> <field name="revenue_exp_budget" class="oe_clear"/></td>
+                                    <td width="2%"> <field name="revenue_exp_change" class="oe_clear"/></td>
+
+                                    <td width="2%"> <field name="revenue_exp_year" class="oe_clear"/></td>
+                                    <td width="2%"> <field name="revenue_exp_yoy_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                <tr>
+                                    <td width="10%"> Finance Cost </td>
+
+                                    <td width="7%"> <field name="finance_val" class="oe_clear"/></td>
+                                    <td> <field name="finance_tot" class="oe_clear"/></td>
+                                    <td> <field name="finance_budget" class="oe_clear"/></td>
+                                    <td> <field name="finance_change" class="oe_clear"/></td>
+                                    <td> <field name="finance_year" class="oe_clear"/></td>
+                                    <td> <field name="finance_yoy_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                <tr>
+                                    <td width="10%"> Tax  </td>
+                                    <td width="7%"> <field name="tax_val" class="oe_clear"/></td>
+                                    <td> <field name="tax_tot" class="oe_clear"/></td>
+                                    <td> <field name="tax_budget" class="oe_clear"/></td>
+                                    <td> <field name="tax_change" class="oe_clear"/></td>
+
+                                    <td> <field name="tax_year" class="oe_clear"/></td>
+                                    <td> <field name="tax_yoy_change" class="oe_clear"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <br/> </td>
+                                </tr>
+                                <tr>
+                                    <td> <h4> Income Summary </h4>  </td>
+
+                                    <td> <field name="summary_val" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="summary_tot" class="oe_clear" readonly="1"/></td>
+
+                                    <td> <field name="summary_budget" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="summary_change" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="summary_year" class="oe_clear" readonly="1"/></td>
+                                    <td> <field name="summary_yoy_change" class="oe_clear" readonly="1"/></td>
+                                </tr>
+
+                        </table>
+                        <h2>Notes</h2>
+                        <span><field name="details" String="notes"/></span>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+ <!--cash flow-->
+        <record id="view_cash" model="ir.ui.view">
+            <field name="name">Cash Flow</field>
+            <field name="model">cash.flow</field>
+            <field name="arch" type="xml">
+                <form string="Cash Flow">
+                    <sheet>
+                        <group name="first">
+
+                            <table width="40%" col="9">
+                                <tr >
+                                    <td> Client Name </td>
+                                    <td><field name="client_name" class="oe_clear"/> </td>
+                                </tr>
+                                <tr>
+                                    <td><br/></td>
+                                </tr>
+                            </table>
+                            <table width="100%" col="9">
+                                <tr style="background-color:#595959 " color="#ffffff" TEXT="#ffffff" width="100%">
+                                    <!-- <font color="#ffffff"> <b>Key Accelerators</b></font>-->
+                                    <td width="70%"><font color="#ffffff"><b>Statement of Cash Flows</b></font></td>
+                                    <td width="15%"><font color="#ffffff">Report Period</font></td>
+                                    <td><font color="#ffffff"> Form</font></td>
+                                    <td><font color="#ffffff"> <field name="from_date" class="oe_clear"/></font></td>
+                                    <td><font color="#ffffff"> To  </font> </td>
+                                    <td><font color="#ffffff"> <field name="to_date" class="oe_clear"/> </font></td>
+                                </tr>
+                                <tr>
+                                    <br/>
+                                </tr>
+                            </table>
+                        </group>
+                        <group >
+                            <group width="70%">
+
+                            </group>
+                            <group>
+                                <field name="cash_beg" string="Cash at beginning of period"/>
+                            </group>
+                        </group>
+                        <separator string="Financial Position Analysis" colspan="4" style="background-color:#e6e6e6" />
+                        <h3>Operating Activities</h3>
+                        <field name="op_id">
+                            <tree editable="top">
+                                <field name="op_cash_rec_from" string="Cash receipts from"/>
+                                <field name="op_cash_rec_val" string="" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="op_cash_rec_from" string="Cash receipts from"/>
+                                    <h4><field name="op_cash_rec_val" string="" class="oe_clear"/> </h4>
+                                </group>
+                            </form>
+                        </field>
+                        <br/>
+                        <field name="op_paid_id">
+                            <tree editable="top">
+                                <field name="op_paid_rec_to" string="Cash Paid To"/>
+                                <field name="op_paid_rec_val" string="" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="op_paid_rec_to" string="Cash Paid To"/>
+                                    <h4><field name="op_paid_rec_val" string="" class="oe_clear"/> </h4>
+                                </group>
+                            </form>
+                        </field>
+                        <group>
+                            <group width="90%">
+                                <h4>Net cash flow from (used) in  Investing Activities</h4>
+                            </group>
+                            <group >
+                                <h4><field name="op_cash_total" class="oe_clear"/></h4>
+                            </group>
+                        </group>
+
+                        <h3>Investing Activities</h3>
+                        <field name="inv_id">
+                            <tree editable="top">
+                                <field name="inv_cash_rec_from" string="Cash receipts from"/>
+                                <field name="inv_cash_rec_val" string="" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="inv_cash_rec_from" string="Cash receipts from"/>
+                                    <h4><field name="inv_cash_rec_val" string="" class="oe_clear"/> </h4>
+                                </group>
+                            </form>
+                        </field>
+                        <br/>
+                        <field name="inv_paid_id">
+                            <tree editable="top">
+                                <field name="inv_paid_rec_to" string="Cash Paid To"/>
+                                <field name="inv_paid_rec_val" string="" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="inv_paid_rec_to" string="Cash Paid To"/>
+                                    <h4><field name="inv_paid_rec_val" string="" class="oe_clear"/> </h4>
+                                </group>
+                            </form>
+                        </field>
+                        <group>
+                            <group width="90%" >
+                                <h4>Net cash flow from (used) in  Investing Activities </h4>
+                            </group>
+                            <group >
+                                <h4><field name="inv_cash_total" class="oe_clear"/></h4>
+                            </group>
+                        </group>
+
+
+                        <h3>Financing  Activities </h3>
+                        <field name="fin_id">
+                            <tree editable="top">
+                                <field name="fin_cash_rec_from" string="Cash receipts from"/>
+                                <field name="fin_cash_rec_val" string="" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="fin_cash_rec_from" string="Cash receipts from"/>
+                                    <h4><field name="fin_cash_rec_val" string="" class="oe_clear"/> </h4>
+                                </group>
+                            </form>
+                        </field>
+                        <br/>
+                        <field name="fin_paid_id">
+                            <tree editable="top">
+                                <field name="fin_paid_rec_to" string="Cash Paid To"/>
+                                <field name="fin_paid_rec_val" string="" avg="Average" class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="fin_paid_rec_to" string="Cash Paid To"/>
+                                    <h4><field name="fin_paid_rec_val" string="" class="oe_clear"/> </h4>
+                                </group>
+                            </form>
+                        </field>
+                        <group>
+                            <group width="90%" >
+                                <h4> Net cash flow from (used) in  Financing  Activities </h4>
+                            </group>
+                            <group >
+                                <h4><field name="fin_cash_total" class="oe_clear"/></h4>
+                            </group>
+                        </group>
+                        <br/>
+                        <group>
+                            <group width="90%">
+                                <h4> Net Increase (Decrease) in Cash and Cash Equivalents </h4>
+                            </group>
+                            <group >
+                                <h4><field name="net_incr" class="oe_clear"/></h4>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group width="90%">
+                                <h3> Cash and Cash Equivalents cash flow statement at the end of period </h3>
+                            </group>
+                            <group >
+                                <h4><field name="cash_end" class="oe_clear"/></h4>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Key performance-->
+        <record id="view_kpi" model="ir.ui.view">
+            <field name="name">Key Performance</field>
+            <field name="model">kpi</field>
+            <field name="arch" type="xml">
+                <form string="key Performance">
+                    <sheet>
+                        <group name="first">
+                            <group name="first_left">
+
+                                <td><field name="client_name" class="oe_clear" /> </td>
+                            </group>
+                            <group name="first_right">
+
+                                <table >
+                                    <tr>
+
+                                        <td><h4>Report Period     : </h4></td>
+                                        <td></td>
+                                        <td><h4> FROM   </h4> </td>
+                                        <td> <field name="from_date" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td><h4 > TO   </h4> </td>
+                                        <td> <field name="to_date" class="oe_clear"/></td>
+                                    </tr>
+                                </table>
+                            </group>
+
+
+                        </group>
+
+                        <separator string="Key Perormance Indicators" colspan="4" style="background-color:#e6e6e6"  />
+                        <br/>
+
+                        <field name="key_per">
+                            <tree editable="top">
+                                <field name="indicator" string="Indicator"/>
+                                <field name="current" avg="Average" class="oe_clear"/>
+                                <field name="target" avg="Average" class="oe_clear"/>
+                                <field name="Variance" avg="Average" class="oe_clear" />
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="indicator" string="Indicator"/>
+                                    <h4><field name="current" avg="Average" class="oe_clear"/></h4>
+                                    <h4><field name="target" avg="Average" class="oe_clear"/></h4>
+                                    <h4><field name="Variance" avg="Average" class="oe_clear" /></h4>
+                                </group>
+                            </form>
+                        </field>
+
+                        <h2>Notes</h2>
+                        <span><field name="details" String="notes"/></span>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--audit-->
+        <record id="view_audit" model="ir.ui.view">
+            <field name="name">Audit</field>
+            <field name="model">audit</field>
+            <field name="arch" type="xml">
+                <form string="Audit">
+                    <sheet>
+                        <group name="first">
+                            <group name="first_left">
+
+                                <td><field name="client_name" class="oe_clear" /> </td>
+                            </group>
+                            <group name="first_right">
+
+                                <table >
+                                    <tr>
+
+                                        <td><h4>Report Period     : </h4></td>
+                                        <td></td>
+                                        <td><h4> FROM   </h4> </td>
+                                        <td> <field name="from_date" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td><h4 > TO   </h4> </td>
+                                        <td> <field name="to_date" class="oe_clear"/></td>
+                                    </tr>
+                                </table>
+                            </group>
+
+
+                        </group>
+
+                        <separator string="Key Strenghts" colspan="4" style="background-color:#e6e6e6" />
+                        <br/>
+
+                        <field name="key_stren_id">
+                            <tree editable="top">
+                                <field name="key_cont" />
+                                <field name="incont"  class="oe_clear"/>
+                                <field name="recom"  class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="key_cont" />
+                                    <field name="incont"  class="oe_clear"/>
+                                    <field name="recom"  class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+
+                        <separator string="Controls and Gab Analysis" colspan="4" style="background-color:#e6e6e6" />
+                        <br/>
+
+                        <field name="key_cont_id">
+                            <tree editable="top">
+                                <field name="key_cont_anal" />
+                                <field name="dis_openion"  class="oe_clear"/>
+                                <field name="nig_openion"  class="oe_clear"/>
+                                <field name="man_action"  class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="key_cont_anal" />
+                                    <field name="dis_openion"  class="oe_clear"/>
+                                    <field name="nig_openion"  class="oe_clear"/>
+                                    <field name="man_action"  class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+
+                        <separator string="Key Accelerators" colspan="4" style="background-color:#e6e6e6" />
+                        <br/>
+
+                        <field name="key_accel">
+                            <tree editable="top">
+                                <field name="empowered" />
+                                <field name="target_date"  class="oe_clear"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="empowered" />
+                                    <field name="target_date"  class="oe_clear"/>
+                                </group>
+                            </form>
+                        </field>
+
+                        <h2>Notes</h2>
+                        <span><field name="details" String="notes"/></span>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Test view-->
+
+        <record id="view_test" model="ir.ui.view">
+            <field name="name"> Test </field>
+            <field name="model">test</field>
+            <field name="arch" type="xml">
+                <form string="Test">
+                    <sheet>
+                        <group name="first">
+                            <group name="first_left">
+                                <td><field name="client_name" class="oe_clear" /> </td>
+                            </group>
+                            <group name="first_right">
+
+                                <table >
+                                    <tr>
+
+                                        <td><h4>Report Period     : </h4></td>
+                                        <td></td>
+                                        <td><h4> FROM   </h4> </td>
+                                        <td> <field name="from_date" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td><h4 > TO   </h4> </td>
+                                        <td> <field name="to_date" class="oe_clear"/></td>
+                                    </tr>
+                                </table>
+                            </group>
+                        </group>
+
+
+                        <separator string="Bankruptcy Test" colspan="4" style="background-color:#e6e6e6" />
+                        <br/>
+
+                        <table width="100%" name="first-table">
+                            <thead style="background-color:#ffffff">
+                                <tr>
+                                    <td><b>Indicator</b></td>
+                                    <td ><b>Ratio </b></td>
+                                    <td><b> Weighting Factor</b></td>
+                                    <td><b>score</b></td>
+                                </tr>
+                                <tr>
+                                    <td><br/></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>working capital / total assets</td>
+                                    <td><field name="work_ratio"/></td>
+                                    <td>6.56</td>
+                                    <td><field name="work_score"/></td>
+                                    <td/>
+                                </tr>
+                                 <tr>
+                                    <td>equity / total assets</td>
+                                    <td><field name="equilty_ratio_asset"/></td>
+                                    <td>3.36</td>
+                                    <td><field name="equilty_score_asset"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>EBIT / total assets</td>
+                                    <td><field name="ebit_ratio"/></td>
+                                    <td>6.72</td>
+                                    <td><field name="ebit_score"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>equity / total liabilities</td>
+                                    <td><field name="equilty_ratio_liab"/></td>
+                                    <td>1.05</td>
+                                    <td><field name="equilty_score_liab"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td>Altman Z-score :</td>
+                                    <td colors="red:tot_score &lt; 10" ><field name="tot_score" readonly="1"  /></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <separator string="Rating of the Financial Condition" colspan="4" style="background-color:#e6e6e6" />
+                        <br/>
+                        <table width="100%" style = "border-collapse: collapse ; border: 1px solid black">
+                            <tr  style = "border: 1px solid black">
+                              <th  style = "border: 1px solid black" rowspan="2">Indicator </th>
+                              <th  style = "border: 1px solid black" rowspan="2">Weighting Factor:</th>
+                              <th  style = "border: 1px solid black" colspan="3">Score </th>
+                              <td  style = "border: 1px solid black" rowspan="2">Average Score </td>
+                              <td  style = "border: 1px solid black" rowspan="2">Weighted Average Score</td>
+                            </tr>
+                            <tr  style = "border: 1px solid black">
+                              <td  style = "border: 1px solid black" >Past </td>
+                              <td  style = "border: 1px solid black">Current </td>
+                              <td  style = "border: 1px solid black">Future</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>1.Rating of Financial Position</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Debt ratio </td>
+                                <td>0.3</td>
+                                <td><field name="dept_past"/></td>
+                                <td><field name="dept_cur"/></td>
+                                <td><field name="dept_fut"/></td>
+                                <td><field name="dept_avrg"/></td>
+                                <td><field name="dept_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Non-current assets to net assets</td>
+                                <td>0.15</td>
+                                <td><field name="non_cur_past"/></td>
+                                <td><field name="non_cur_cur"/></td>
+                                <td><field name="non_cur_fut"/></td>
+                                <td><field name="non_cur_avrg"/></td>
+                                <td><field name="non_cur_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Current ratio </td>
+                                <td>0.2</td>
+                                <td><field name="cur_past"/></td>
+                                <td><field name="cur_cur"/></td>
+                                <td><field name="cur_fut"/></td>
+                                <td><field name="cur_avrg"/></td>
+                                <td><field name="cur_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Quick Ratio </td>
+                                <td>0.2</td>
+                                <td><field name="quick_past"/></td>
+                                <td><field name="quick_cur"/></td>
+                                <td><field name="quick_fut"/></td>
+                                <td><field name="quick_avrg"/></td>
+                                <td><field name="quick_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Cash Ratio </td>
+                                <td>0.15</td>
+                                <td><field name="cash_past"/></td>
+                                <td><field name="cash_cur"/></td>
+                                <td><field name="cash_fut"/></td>
+                                <td><field name="cash_avrg"/></td>
+                                <td><field name="cash_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Total</b>
+                                </td>
+                                <td><b>1</b></td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><field name="total_1" readonly="1" /></td>
+                            </tr>
+
+                            <tr style="background-color:#e6e6e6">
+                                <td >
+                                    <span  >
+                                        <b> Rating Scale</b>
+                                    </span>
+                                </td >
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><field name="rat_scale_1" readonly="1"/></td>
+                            </tr>
+
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>2.Rating of Financial Performance</b>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>Return on equity</td>
+                                <td>0.5</td>
+                                <td><field name="ret_equilty_past"/></td>
+                                <td><field name="ret_equilty_cur"/></td>
+                                <td><field name="ret_equilty_fut"/></td>
+                                <td><field name="ret_equilty_avrg"/></td>
+                                <td><field name="ret_equilty_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Return on assets</td>
+                                <td>0.3</td>
+                                <td><field name="ret_asset_past"/></td>
+                                <td><field name="ret_asset_cur"/></td>
+                                <td><field name="ret_asset_fut"/></td>
+                                <td><field name="ret_asset_avrg"/></td>
+                                <td><field name="ret_asset_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Revenue  Growth</td>
+                                <td>0.2</td>
+                                <td><field name="rev_grow_past"/></td>
+                                <td><field name="rev_grow_cur"/></td>
+                                <td><field name="rev_grow_fut"/></td>
+                                <td><field name="rev_grow_avrg"/></td>
+                                <td><field name="rev_grow_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Total</b>
+                                </td>
+                                <td><b>1</b></td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><field name="total_2" readonly="1" /></td>
+                            </tr>
+                            <tr style="background-color:#e6e6e6">
+                                <td >
+                                    <span    >
+                                        <b> Rating Scale</b>
+                                    </span>
+                                </td >
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><field name="rat_scale_2" readonly="1"/></td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr style="background-color:#e6e6e6">
+                                <td colspan="2">
+                                    <span  >
+                                        <b> The Final  Rating score of Financial condition </b>
+                                    </span>
+                                </td >
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><field name="total_rat_scale" readonly="1" /></td>
+                            </tr>
+                            </table>
+                        <br/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="kpi_action" model="ir.actions.act_window">
+            <field name="name">Key Performance</field>
+            <field name="res_model">kpi</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <record id="cash_action" model="ir.actions.act_window">
+            <field name="name"> Cash Flow</field>
+            <field name="res_model">cash.flow</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <record id="performance_action" model="ir.actions.act_window">
+            <field name="name">performance action</field>
+            <field name="res_model">performance.snapshot</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <record id="income_action" model="ir.actions.act_window">
+            <field name="name">Income Statement</field>
+            <field name="res_model">income.statement</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <record id="balance_action" model="ir.actions.act_window">
+            <field name="name">Balance Sheet</field>
+            <field name="res_model">balance.sheet</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <record id="audit_action" model="ir.actions.act_window">
+            <field name="name">Audit</field>
+            <field name="res_model">audit</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <record id="test_action" model="ir.actions.act_window">
+            <field name="name">Test</field>
+            <field name="res_model">test</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+
+        <menuitem id="menu_main" name="Engagement Reports"/>
+        <menuitem id="menu_reports"  name="Engagement Reports" parent="menu_main"/>
+        <menuitem id="menu_perfornamce" name="Performance Snapshot"  action="performance_action" parent="menu_reports"/>
+        <menuitem id="menu_balanced" name="Balance Sheet"  action="balance_action" parent="menu_reports"/>
+        <menuitem id="menu_income" name="Income Statement"  action="income_action" parent="menu_reports"/>
+        <menuitem id="menu_cash" name="Cash Flow"  action="cash_action" parent="menu_reports"/>
+        <menuitem id="menu_kpi" name="Key Performance"  action="kpi_action" parent="menu_reports"/>
+        <menuitem id="menu_audit" name="Audit"  action="audit_action" parent="menu_reports"/>
+        <menuitem id="menu_test" name="Test"  action="test_action" parent="menu_reports"/>
+
+    </data>
+</openerp>

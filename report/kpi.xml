@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="kpi_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+                                <group string="Revenue">
+                                    <table width="100%">
+                                        <thead>
+                                             <tr >
+                                                 <td> Client Name </td>
+                                                 <td ><span t-field="o.client_name" class="oe_clear" /> </td>
+                                                 <td/>
+                                                 <td/>
+                                                 <td/>
+                                                 <td width="15%">Report Period</td>
+                                                 <td> Form  </td>
+                                                 <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                                 <td> To   </td>
+                                                 <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                             </tr>
+                                            <tr>
+                                                <td colspan="10">
+                                                <h4  style="background-color:#e6e6e6"  >
+                                                         <b>Key Perormance Indicators</b>
+                                                </h4>
+                                                </td >
+                                            </tr>
+                                            <tr>
+                                                <td><b>Indicator</b></td>
+                                                <td/>
+                                                <td/>
+                                                <td ><b>Current</b></td>
+                                                <td><b> Target </b></td>
+                                                <td/>
+                                                <td><b>Variance%</b></td>
+                                                <td/>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.key_per" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.indicator"/></td>
+                                                    <td/>
+                                                    <td/>
+                                                    <td><span t-field="m.current"/></td>
+                                                    <td><span t-field="m.target"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.Variance"/></td>
+                                                    <td/>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </group>
+                                <br/>
+                                <b>Notes</b>
+                                <span t-field="o.details" String="notes"/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+    </openerp>

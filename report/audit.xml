@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="audit_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+                                <group string="Revenue">
+                                    <table width="100%">
+                                        <thead>
+                                             <tr col="9" >
+                                                 <td> Client Name </td>
+                                                 <td width="20%"><span t-field="o.client_name" class="oe_clear" /> </td>
+                                                 <td/>
+                                                 <td width="15%">Report Period</td>
+                                                 <td> Form  </td>
+                                                 <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                                 <td> To   </td>
+                                                 <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                             </tr>
+                                        </thead>
+                                    </table>
+                                </group>
+                                <br/>
+                                <h5  style="background-color:#595959 "  TEXT="#ffffff"  >
+                                    <font color="#ffffff"> <b>Key Strenghts</b></font>
+                                </h5>
+                                <group>
+                                    <table style ="border-collapse: collapse ; border: 1px solid black" col="8" width="100%">
+                                        <thead>
+                                            <tr style="background-color:#e6e6e6 ; border: 1px solid black">
+                                                <td style = "border: 1px solid black" colspan="2">Key Controls </td>
+
+                                                <td style = "border: 1px solid black" colspan="3" >Highlighted incotrols and processes</td>
+                                                <td  style = "border: 1px solid black" colspan="3"> Recommendations for better practice improvement</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.key_stren_id" t-as="m">
+                                                <tr style = "border: 1px solid black">
+                                                    <td style = "border: 1px solid black" colspan="2"><span t-field="m.key_cont"/></td>
+
+                                                    <td style = "border: 1px solid black" colspan="3"><span t-field="m.incont"/></td>
+                                                    <td style = "border: 1px solid black" colspan="3"><span t-field="m.recom"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                    <br/>
+                                    <h5  style="background-color:#595959 "  TEXT="#ffffff"  >
+                                    <font color="#ffffff"> <b>Controls and Gab Analysis</b></font>
+                                </h5>
+                                </group>
+                                <group>
+                                    <table style ="border-collapse: collapse ; border: 1px solid black" col="8" width="100%">
+                                        <thead>
+                                            <tr style="background-color:#e6e6e6 ; border: 1px solid black">
+                                                <td style = "border: 1px solid black" colspan="2">Key Controls </td>
+
+                                                <td style = "border: 1px solid black" colspan="2" >Discreet openion</td>
+                                                <td style = "border: 1px solid black" colspan="2"> Negative openion</td>
+                                                <td style = "border: 1px solid black" colspan="2"> Management action </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.key_cont_id" t-as="m">
+                                                <tr style = "border: 1px solid black">
+                                                    <td style = "border: 1px solid black" colspan="2"><span t-field="m.key_cont_anal"/></td>
+
+                                                    <td style = "border: 1px solid black" colspan="2"><span t-field="m.dis_openion"/></td>
+                                                    <td style = "border: 1px solid black" colspan="2"><span t-field="m.nig_openion"/></td>
+                                                    <td style = "border: 1px solid black" colspan="2"><span t-field="m.man_action"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                     <br/>
+                                    <h5  style="background-color:#595959 "  TEXT="#ffffff"  >
+                                    <font color="#ffffff"> <b>Key Accelerators</b></font>
+                                    </h5>
+                                </group>
+                                <group>
+                                    <table style ="border-collapse: collapse ; border: 1px solid black" col="8" width="100%">
+                                        <thead>
+                                            <tr style="background-color:#e6e6e6 ; border: 1px solid black">
+                                                <td style = "border: 1px solid black" width="71%"> Empowered </td>
+
+                                                <td style = "border: 1px solid black" > Target Date </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.key_accel" t-as="m">
+                                                <tr style = "border: 1px solid black">
+                                                    <td style = "border: 1px solid black"><span t-field="m.empowered"/></td>
+
+                                                    <td style = "border: 1px solid black" ><span t-field="m.target_date"/></td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </group>
+                                <br/>
+                                <b>Notes</b>
+                                <span t-field="o.details" String="notes"/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+    </openerp>

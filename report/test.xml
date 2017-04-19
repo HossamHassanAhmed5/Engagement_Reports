@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="test_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+
+                                <table width="100%">
+                                    <thead>
+                                        <tr col="9" >
+                                            <td> Client Name </td>
+                                            <td width="20%"><span t-field="o.client_name" class="oe_clear" /> </td>
+                                            <td/>
+                                            <td width="15%">Report Period</td>
+                                            <td> Form  </td>
+                                            <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                            <td> To   </td>
+                                            <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <h5  style="background-color:#595959 "  TEXT="#ffffff"  >
+                                    <font color="#ffffff"> <b>Bankruptcy Test</b></font>
+                                </h5>
+                                <br/>
+                        <!--<separator string="Bankruptcy Test" colspan="4" style="background-color:#e6e6e6" />
+                        <br/>-->
+                        <table width="100%" name="first-table">
+                            <thead style="background-color:#ffffff">
+                                <tr style="background-color:#ffffff">
+                                    <td><b>Indicator</b></td>
+                                    <td ><b>Ratio </b></td>
+                                    <td><b> Weighting Factor</b></td>
+                                    <td><b>score</b></td>
+                                </tr>
+                                <tr>
+                                    <td><br/></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>working capital / total assets</td>
+                                    <td><span t-field="o.work_ratio"/></td>
+                                    <td>6.56</td>
+                                    <td><span t-field="o.work_score"/></td>
+                                    <td/>
+                                </tr>
+                                 <tr>
+                                    <td>equity / total assets</td>
+                                    <td><span t-field="o.equilty_ratio_asset"/></td>
+                                    <td>3.36</td>
+                                    <td><span t-field="o.equilty_score_asset"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>EBIT / total assets</td>
+                                    <td><span t-field="o.ebit_ratio"/></td>
+                                    <td>6.72</td>
+                                    <td><span t-field="o.ebit_score"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>equity / total liabilities</td>
+                                    <td><span t-field="o.equilty_ratio_liab"/></td>
+                                    <td>1.05</td>
+                                    <td><span t-field="o.equilty_score_liab"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td>Altman Z-score :</td>
+                                    <td><span t-field="o.tot_score" readonly="1" /></td>
+                                    <td/>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+
+                                <h5  style="background-color:#595959 "  TEXT="#ffffff"  >
+                                    <font color="#ffffff"> <b>Rating of the Financial Condition</b></font>
+                                </h5>
+                        <!--<separator string="Rating of the Financial Condition" colspan="4" style="background-color:#e6e6e6" />-->
+                        <br/>
+                        <table width="100%" >
+                            <!--<tr style="background-color:#ffffff">
+                                    <td><b>Indicator</b></td>
+                                    <td ><b>Ratio </b></td>
+                                    <td colspan="2"><b> Weighting Factor</b></td>
+                                <td/>
+                                    <td><b>score</b></td>
+                                </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                    <td>working capital / total assets</td>
+                                    <td><span t-field="o.work_ratio"/></td>
+                                    <td>6.56</td>
+                                <td/>
+                                <td/>
+                                    <td><span t-field="o.work_score"/></td>
+                                    <td/>
+                                </tr>
+                                 <tr>
+                                    <td>equity / total assets</td>
+                                    <td><span t-field="o.equilty_ratio_asset"/></td>
+                                    <td>3.36</td>
+                                     <td/>
+                                     <td/>
+                                    <td><span t-field="o.equilty_score_asset"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>EBIT / total assets</td>
+                                    <td><span t-field="o.ebit_ratio"/></td>
+                                    <td>6.72</td>
+                                    <td/>
+                                    <td/>
+                                    <td><span t-field="o.ebit_score"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>equity / total liabilities</td>
+                                    <td><span t-field="o.equilty_ratio_liab"/></td>
+                                    <td>1.05</td>
+                                    <td/>
+                                    <td/>
+                                    <td><span t-field="o.equilty_score_liab"/></td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td colspan="2">Altman Z-score :</td>
+                                    <td><span t-field="o.tot_score" readonly="1" /></td>
+                                </tr>-->
+                            <tr  style = "border: 1px solid black">
+                              <th  style = "border: 1px solid black" rowspan="2">Indicator </th>
+                              <th  style = "border: 1px solid black" rowspan="2">Weighting Factor:</th>
+                              <th  style = "border: 1px solid black" colspan="3">Score </th>
+                              <td  style = "border: 1px solid black" rowspan="2">Average Score </td>
+                              <td  style = "border: 1px solid black" rowspan="2">Weighted Average Score</td>
+                            </tr>
+                            <tr  style = "border: 1px solid black">
+                              <td  style = "border: 1px solid black" >Past </td>
+                              <td  style = "border: 1px solid black" >Current </td>
+                              <td  style = "border: 1px solid black" >Future</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>1.Rating of Financial Position</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Debt ratio </td>
+                                <td>0.3</td>
+                                <td><span t-field="o.dept_past"/></td>
+                                <td><span t-field="o.dept_cur"/></td>
+                                <td><span t-field="o.dept_fut"/></td>
+                                <td><span t-field="o.dept_avrg"/></td>
+                                <td><span t-field="o.dept_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Non-current assets to net assets</td>
+                                <td>0.15</td>
+                                <td><span t-field="o.non_cur_past"/></td>
+                                <td><span t-field="o.non_cur_cur"/></td>
+                                <td><span t-field="o.non_cur_fut"/></td>
+                                <td><span t-field="o.non_cur_avrg"/></td>
+                                <td><span t-field="o.non_cur_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Current ratio </td>
+                                <td>0.2</td>
+                                <td><span t-field="o.cur_past"/></td>
+                                <td><span t-field="o.cur_cur"/></td>
+                                <td><span t-field="o.cur_fut"/></td>
+                                <td><span t-field="o.cur_avrg"/></td>
+                                <td><span t-field="o.cur_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Quick Ratio </td>
+                                <td>0.2</td>
+                                <td><span t-field="o.quick_past"/></td>
+                                <td><span t-field="o.quick_cur"/></td>
+                                <td><span t-field="o.quick_fut"/></td>
+                                <td><span t-field="o.quick_avrg"/></td>
+                                <td><span t-field="o.quick_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Cash Ratio </td>
+                                <td>0.15</td>
+                                <td><span t-field="o.cash_past"/></td>
+                                <td><span t-field="o.cash_cur"/></td>
+                                <td><span t-field="o.cash_fut"/></td>
+                                <td><span t-field="o.cash_avrg"/></td>
+                                <td><span t-field="o.cash_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Total</b>
+                                </td>
+                                <td><b>1</b></td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><span t-field="o.total_1" readonly="1"/></td>
+                            </tr>
+
+                            <tr style="background-color:#e6e6e6">
+                                <td >
+                                    <span  >
+                                        <b> Rating Scale</b>
+                                    </span>
+                                </td >
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><span t-field="o.rat_scale_1" readonly="1"/></td>
+                            </tr>
+
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>2.Rating of Financial Performance</b>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>Return on equity</td>
+                                <td>0.5</td>
+                                <td><span t-field="o.ret_equilty_past"/></td>
+                                <td><span t-field="o.ret_equilty_cur"/></td>
+                                <td><span t-field="o.ret_equilty_fut"/></td>
+                                <td><span t-field="o.ret_equilty_avrg"/></td>
+                                <td><span t-field="o.ret_equilty_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Return on assets</td>
+                                <td>0.3</td>
+                                <td><span t-field="o.ret_asset_past"/></td>
+                                <td><span t-field="o.ret_asset_cur"/></td>
+                                <td><span t-field="o.ret_asset_fut"/></td>
+                                <td><span t-field="o.ret_asset_avrg"/></td>
+                                <td><span t-field="o.ret_asset_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>Revenue  Growth</td>
+                                <td>0.2</td>
+                                <td><span t-field="o.rev_grow_past"/></td>
+                                <td><span t-field="o.rev_grow_cur"/></td>
+                                <td><span t-field="o.rev_grow_fut"/></td>
+                                <td><span t-field="o.rev_grow_avrg"/></td>
+                                <td><span t-field="o.rev_grow_weight"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Total</b>
+                                </td>
+                                <td><b>1</b></td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><span t-field="o.total_2" readonly="1" /></td>
+                            </tr>
+                            <tr style="background-color:#e6e6e6">
+                                <td >
+                                    <span    >
+                                        <b> Rating Scale</b>
+                                    </span>
+                                </td >
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><span t-field="o.rat_scale_2" readonly="1"/></td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr style="background-color:#e6e6e6">
+                                <td colspan="2">
+                                    <span  >
+                                        <b> The Final  Rating score of Financial condition </b>
+                                    </span>
+                                </td >
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td><span t-field="o.total_rat_scale" readonly="1" /></td>
+                            </tr>
+                            </table>
+                        <br/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+</openerp>

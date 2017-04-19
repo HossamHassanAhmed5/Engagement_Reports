@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="performance_snapshot_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+                                <group id="first">
+                                    <img src="/Engagement_Reports/static/description/icon.jpg"/>
+                                </group>
+                                <br/>
+                                <group name="first">
+                                    <group name="director_left"  >
+                                         <group colspan="2">
+                                             <table width="100%">
+                                                 <tr>
+                                                     <td><b>Director's Report</b></td>
+                                                     <td ><b>Issue date</b></td>
+                                                     <td ><span t-field="o.issue_date"/></td>
+                                                     <td/>
+                                                     <td/>
+                                                     <td/>
+                                                     <td><b>The Auditor: </b></td>
+                                                     <td><span t-field="o.auditor" /></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td/>
+                                                     <td>Report Period</td>
+                                                     <td> Form  </td>
+                                                     <td> <span t-field="o.from_date" class="oe_clear"/></td>
+                                                     <td> To   </td>
+                                                     <td> <span t-field="o.to_date" class="oe_clear"/></td>
+                                                     <td > Engagement Manager: </td>
+                                                     <td><span t-field="o.manager"/> </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td> <br/></td>
+                                                 </tr>
+                                                 <tr  >
+                                                     <td>Statement of Work: </td>
+                                                     <td><span t-field="o.statment_work" /></td>
+                                                     <td/>
+                                                     <td/>
+                                                     <td/>
+                                                     <td/>
+                                                     <td>Total Working Hours</td>
+                                                     <td><span t-field="o.work_hour" /></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td><br/></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td>Client Relations</td>
+                                                     <td><span t-field="o.client_rel"/></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td><br/></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td> <br/> </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td><b>Client name : </b></td>
+                                                     <td > <span t-field="o.client_name" String="Client name : "/> </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td>Engagement Number :</td>
+                                                     <td><span t-field="o.Engag_num" String=" "/></td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td><br/></td>
+                                                 </tr>
+                                                 <tr col="7">
+                                                     <td> License Info : </td>
+                                                     <td><span t-field="o.licen_info" /></td>
+                                                     <td/>
+                                                     <td/>
+                                                     <td/>
+                                                     <td> Director's Name :  </td>
+                                                     <td> <span t-field="o.director_name" /> </td>
+                                                 </tr>
+                                                 <tr col="7">
+                                                     <td> City     : </td>
+                                                     <td> <span t-field="o.city" class="oe_clear"/></td>
+                                                     <td> Country   : </td>
+                                                     <td> <span t-field="o.country" class="oe_clear"/></td>
+                                                     <td/>
+                                                     <td>E-mail: </td>
+                                                     <td><span t-field="o.email"/></td>
+                                                 </tr>
+                                                 <tr col="7">
+                                                     <td>Business Activity : </td>
+                                                     <td><span t-field="o.busin_activary" /></td>
+                                                     <td/>
+                                                     <td/>
+                                                     <td/>
+                                                     <td>Phone</td>
+                                                     <td><span t-field="o.phone"/></td>
+                                                 </tr>
+                                                 <tr col="7">
+                                                    <td> Report Currency       :  </td>
+                                                    <td> <span t-field="o.report_cur" class="oe_clear"/></td>
+                                                    <td> Rounding Level  </td>
+                                                    <td> <span t-field="o.round_level" class="oe_clear"/></td>
+                                                     <td/>
+                                                     <td>Address</td>
+                                                     <td><span t-field="o.address"/></td>
+                                                </tr>
+
+                                            </table>
+                                        </group>
+                                    </group>
+                                </group>
+                                <br/>
+                                <br/>
+                                <table width="100%">
+                                    <tr>
+                                        <th ><b>Key Audits</b></th>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <th><b>Key Accelerators</b></th>
+                                    </tr>
+                                    <tr col="7">
+                                        <td >Open Findings : </td>
+                                        <td><span t-field="o.open_findings" /></td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td><span t-field="o.key_findings"/></td>
+                                        <td><span t-field="o.findings_date"/></td>
+                                    </tr>
+                                    <tr col="7">
+                                        <td >Open Vouching : </td>
+                                        <td><span t-field="o.open_vouching" /></td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td><span t-field="o.key_vouching"/></td>
+                                        <td><span t-field="o.vouching_date"/></td>
+                                    </tr>
+                                    <tr col="7">
+                                        <td>Discreet Openion </td>
+                                        <td><span t-field="o.discreet_openion" /></td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td><span t-field="o.key_discreet_openion"/></td>
+                                        <td><span t-field="o.discreet_openion_date"/></td>
+                                    </tr>
+                                    <tr col="7">
+                                        <td>Negative Openion </td>
+                                        <td><span t-field="o.negative_openion" /></td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td><span t-field="o.key_negative_openion"/></td>
+                                        <td><span t-field="o.negative_openion_date"/></td>
+                                    </tr>
+
+                                </table>
+                                <!--<group name="third">
+                                    <group name="third_left" >
+
+                                        <span t-field="o.open_findings" String="Open Findings "/>
+                                        <span t-field="o.open_vouching" String="Open Vouching  "/>
+                                        <span t-field="o.discreet_openion" String="Discreet Openion "/>
+                                        <span t-field="o.negative_openion" String="Negative Openion "/>
+                                    </group>
+                                     <group name="third_middel" >
+                                        <span><span t-field="o.key_findings" class="oe_clear oe_inline"/></span>
+                                        <span><span t-field="o.findings_date" class="oe_clear"/></span>
+                                        <span><span t-field="o.key_vouching" class="oe_clear oe_inline"/></span>
+                                        <span><span t-field="o.vouching_date" class=" oe_clear"/></span>
+                                        <span><span t-field="o.key_discreet_openion" class=" oe_clear oe_inline"/></span>
+                                        <span><span t-field="o.discreet_openion_date" class=" oe_clear"/></span>
+                                        <span><span t-field="o.key_negative_openion" class="oe_clear oe_inline"/></span>
+                                        <span><span t-field="o.negative_openion_date" class="oe_clear"/></span>
+                                    </group>
+                                </group>-->
+                                <br/>
+                                <br/>
+                                <b>Key Financials</b>
+                                <table width="100%">
+                                    <tr>
+                                        <td></td>
+                                        <th >Current</th>
+                                        <th >Budget</th>
+                                        <th>Variance%</th>
+                                        <td></td>
+                                        <th>Year on Year</th>
+                                        <th>Variance%</th>
+                                    </tr>
+                                    <tr>
+                                        <td> Revenue </td>
+                                        <td> <span t-field="o.curr_rev" class="oe_clear"/></td>
+                                        <td> <span t-field="o.budget_rev" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_rev" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td> <span t-field="o.y_on_y_rev" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_y_to_y_rev" class="oe_clear"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Net Profit </td>
+                                        <td> <span t-field="o.curr_netprof" class="oe_clear"/></td>
+                                        <td> <span t-field="o.budget_netprof" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_netprof" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td> <span t-field="o.y_on_y_netprof" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_y_to_y_netprof" class="oe_clear"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Cash Flow </td>
+                                        <td> <span t-field="o.curr_cash" class="oe_clear"/></td>
+                                        <td> <span t-field="o.budget_cash" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_cash" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td> <span t-field="o.y_on_y_cash" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_y_to_y_cash" class="oe_clear"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Net Assets </td>
+                                        <td> <span t-field="o.curr_asset" class="oe_clear"/></td>
+                                        <td> <span t-field="o.budget_asset" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_asset" class="oe_clear"/></td>
+                                        <td></td>
+                                        <td> <span t-field="o.y_on_y_asset" class="oe_clear"/></td>
+                                        <td> <span t-field="o.variance_y_to_y_asset" class="oe_clear"/></td>
+                                    </tr>
+                                </table>
+                                <b>Notes</b>
+                                <span t-field="o.details" String="notes"/>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+    </openerp>

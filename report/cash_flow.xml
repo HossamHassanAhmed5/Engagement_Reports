@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <openerp>
+        <data>
+            <template id="cash_flow_template">
+                <t t-call="report.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="report.external_layout">
+                            <div class="page">
+                                <group string="Revenue">
+                                    <table width="100%">
+                                            <tr>
+                                                <td> Client Name </td>
+                                                <td ><span t-field="o.client_name" class="oe_clear" /> </td>
+                                            </tr>
+                                        <tr>
+                                            <td><br/></td>
+                                        </tr>
+
+                                             <tr style="background-color:#595959 " color="#ffffff" TEXT="#ffffff">
+                                                <!-- <font color="#ffffff"> <b>Key Accelerators</b></font>-->
+                                                 <td colspan="2"><font color="#ffffff"><b>Statement of Cash Flows</b></font></td>
+                                                 <td width="15%"><font color="#ffffff">Report Period</font></td>
+                                                 <td><font color="#ffffff"> Form  </font></td>
+                                                 <td><font color="#ffffff"> <span t-field="o.from_date" class="oe_clear"/></font></td>
+                                                 <td><font color="#ffffff"> To  </font> </td>
+                                                 <td><font color="#ffffff"> <span t-field="o.to_date" class="oe_clear"/> </font></td>
+                                             </tr>
+                                            <tr>
+                                                <br/>
+                                            </tr>
+                                    </table>
+                                </group>
+                                <br/>
+                                <group>
+                                    <table width="100%" col="10">
+                                        <thead>
+                                            <tr >
+                                                <td/>
+                                                <td>Cash at beginning of period</td>
+                                                <td><span t-field="o.cash_beg"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="10">
+                                                <h4  style="background-color:#e6e6e6"  >
+                                                         <b>Operating Activities</b>
+                                                </h4>
+                                                </td >
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash receipts from</b></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="o.op_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.op_cash_rec_from"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.op_cash_rec_val"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash paid to</b></td>
+                                            </tr>
+                                            <t t-foreach="o.op_paid_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.op_paid_rec_to"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.op_paid_rec_val"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Net cash flow from (used) in  Operating Activities</b></td>
+                                                <td/>
+                                                <td><span t-field="o.op_cash_total"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="10">
+                                                <h4  style="background-color:#e6e6e6"  >
+                                                         <b>Investing Activities</b>
+                                                </h4>
+                                                </td >
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash receipts from</b></td>
+                                            </tr>
+                                            <t t-foreach="o.inv_id" t-as="m">
+                                                <tr>
+                                                    <td ><span t-field="m.inv_cash_rec_from"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.inv_cash_rec_val"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash paid to</b></td>
+                                            </tr>
+                                            <t t-foreach="o.inv_paid_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.inv_paid_rec_to"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.inv_paid_rec_val"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Net cash flow from (used) in  Investing Activities</b></td>
+                                                <td/>
+                                                <td><span t-field="o.inv_cash_total"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="10">
+                                                <h4  style="background-color:#e6e6e6"  >
+                                                         <b>Financing  Activities</b>
+                                                </h4>
+                                                </td >
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash receipts from</b></td>
+                                            </tr>
+                                            <t t-foreach="o.fin_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.fin_cash_rec_from"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.fin_cash_rec_val"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash paid to</b></td>
+                                            </tr>
+                                            <t t-foreach="o.fin_paid_id" t-as="m">
+                                                <tr>
+                                                    <td><span t-field="m.fin_paid_rec_to"/></td>
+                                                    <td/>
+                                                    <td><span t-field="m.fin_paid_rec_val"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Net cash flow from (used) in  Financing  Activities</b></td>
+                                                <td/>
+                                                <td><span t-field="o.fin_cash_total"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Net Increase (Decrease) in Cash and Cash Equivalents</td>
+                                                <td/>
+                                                <td><span t-field="o.net_incr"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><br/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Cash and Cash Equivalents cash flow statement at the end of period</b></td>
+                                                <td/>
+                                                <td><span t-field="o.cash_end"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </group>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+        </data>
+    </openerp>

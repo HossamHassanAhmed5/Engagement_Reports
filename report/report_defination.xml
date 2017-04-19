@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data>
+
+        <report  id="performance_report"
+                 string="Performance Snapshot"
+                 model="performance.snapshot"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.performance_snapshot_template"
+        />
+
+        <report  id="balance_report"
+                 string="Balance Sheet"
+                 model="balance.sheet"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.balance_sheet_template"
+        />
+
+        <report  id="income_report"
+                 string="Income Statement"
+                 model="income.statement"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.income_statement_template"
+        />
+
+        <report  id="kpi_report"
+                 string="Key Perormance Indicators"
+                 model="kpi"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.kpi_template"
+        />
+
+        <report  id="audit_report"
+                 string=" Audit "
+                 model="audit"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.audit_template"
+        />
+
+        <report  id="cash_report"
+                 string=" Cash Flow "
+                 model="cash.flow"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.cash_flow_template"
+        />
+
+        <report  id="test_report"
+                 string=" Test "
+                 model="test"
+                 report_type="qweb-pdf"
+                 name="Engagement_Reports.test_template"
+        />
+
+    </data>
+</openerp>
